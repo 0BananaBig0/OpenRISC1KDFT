@@ -20,12 +20,12 @@ if {![info exists top_module]} {
 }
 
 # Write results
-write_db      ${output_dir}/odb/demo_chip.oasys_final.odb
-write_verilog ${output_dir}/demo_chip.oasys_final.v
-write_sdc     ${output_dir}/demo_chip.oasys_final.sdc
-write_def     ${output_dir}/demo_chip.def
-write_stil    ${output_dir}/demo_chip.stil
-write_ctl     ${output_dir}/demo_chip.ctl
+write_db      ${output_dir}/odb/OpenRISC1k_chip.oasys_final.odb
+write_verilog ${output_dir}/OpenRISC1k_chip.oasys_final.v
+write_sdc     ${output_dir}/OpenRISC1k_chip.oasys_final.sdc
+write_def     ${output_dir}/OpenRISC1k_chip.def
+write_stil    ${output_dir}/OpenRISC1k_chip.stil
+write_ctl     ${output_dir}/OpenRISC1k_chip.ctl
 
 echo "\n-----------------------------"
 echo "\nDesign data exported to output dir."

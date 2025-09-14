@@ -48,7 +48,7 @@ read_verilog $rtl_list  -include $search_path
 synthesize -module ${top_module} -map_to_scan -gate_clock
 
 # constraints: 1.5ns clock
-read_sdc -verbose $demo_chip_sdc_files
+read_sdc -verbose $OpenRISC1k_chip_sdc_files
 
 #insert clk explorer here
 

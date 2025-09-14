@@ -26,7 +26,7 @@ check_dft -auto_test_clock -auto_test_pins
 #=======================================================#
 # Pre fix_dft_violation database
 #=======================================================#
-write_db  ${output_dir}/odb/demo_chip.tessent_pre_fix.odb
+write_db  ${output_dir}/odb/OpenRISC1k_chip.tessent_pre_fix.odb
 
 fix_dft_violations -type all -test_clock sysclk_byp -test_control scan_mode_pad/C
 check_dft
@@ -36,8 +36,8 @@ report_dft_violations
 #Final optimize
 #=======================================================#
 optimize
-write_db      ${output_dir}/odb/demo_chip.tessent_post_fix.odb
-write_verilog ${output_dir}/demo_chip.tessent_post_fix.v
+write_db      ${output_dir}/odb/OpenRISC1k_chip.tessent_post_fix.odb
+write_verilog ${output_dir}/OpenRISC1k_chip.tessent_post_fix.v
 report_timing
 report_endpoints
 report_power
@@ -86,8 +86,8 @@ for {set i 1} {$i < 100} {incr i} {
 
 run_tessent_scan
 
-write_db      ${output_dir}/odb/demo_chip.tessent_post_scan.odb
-write_verilog ${output_dir}/demo_chip.tessent_post_scan.v
+write_db      ${output_dir}/odb/OpenRISC1k_chip.tessent_post_scan.odb
+write_verilog ${output_dir}/OpenRISC1k_chip.tessent_post_scan.v
 report_power
 report_path_groups
 report_scan_chains

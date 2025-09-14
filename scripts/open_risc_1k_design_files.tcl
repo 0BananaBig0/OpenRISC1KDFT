@@ -1,0 +1,84 @@
+####################################################Read_RTL###########################################
+set open_risc_1k_design_files_script_path [file normalize [info script]]
+set search_path "${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog \
+                 ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino"
+
+set path_rtl_list {
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_defines.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_sprs.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_utils.vh
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_cfgrs.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_dpram_en_w1st.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_spram_en_w1st.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_bus_if_wb32.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_ocb.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_rat_cell.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_oman.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_cache_lru.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_icache.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_immu.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_fetch.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_dcache.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_dmmu.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_lsu.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_decode.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_int_1clk.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_int_div.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_int_mul.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_rf.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_rsrvs.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_ctrl.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_pic.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_ticktimer.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_cpu.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_top.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_cmp.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_addsub.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_f2i.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_i2f.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_mul.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_div.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_muldiv.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_rnd.v
+    ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/pfpu_marocchino/pfpu_marocchino_top.v
+}
+
+set rtl_list {
+    or1k_defines.v
+    or1k_sprs.v
+    or1k_utils.vh
+    or1k_cfgrs.v
+    or1k_dpram_en_w1st.v
+    or1k_spram_en_w1st.v
+    or1k_marocchino_bus_if_wb32.v
+    or1k_marocchino_ocb.v
+    or1k_marocchino_rat_cell.v
+    or1k_marocchino_oman.v
+    or1k_marocchino_cache_lru.v
+    or1k_marocchino_icache.v
+    or1k_marocchino_immu.v
+    or1k_marocchino_fetch.v
+    or1k_marocchino_dcache.v
+    or1k_marocchino_dmmu.v
+    or1k_marocchino_lsu.v
+    or1k_marocchino_decode.v
+    or1k_marocchino_int_1clk.v
+    or1k_marocchino_int_div.v
+    or1k_marocchino_int_mul.v
+    or1k_marocchino_rf.v
+    or1k_marocchino_rsrvs.v
+    or1k_marocchino_ctrl.v
+    or1k_marocchino_pic.v
+    or1k_marocchino_ticktimer.v
+    or1k_marocchino_cpu.v
+    or1k_marocchino_top.v
+    pfpu_marocchino_cmp.v
+    pfpu_marocchino_addsub.v
+    pfpu_marocchino_f2i.v
+    pfpu_marocchino_i2f.v
+    pfpu_marocchino_mul.v
+    pfpu_marocchino_div.v
+    pfpu_marocchino_muldiv.v
+    pfpu_marocchino_rnd.v
+    pfpu_marocchino_top.v
+}

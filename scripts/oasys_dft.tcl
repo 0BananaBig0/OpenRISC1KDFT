@@ -18,7 +18,7 @@ report_dft_violations
 #=======================================================#
 # Pre fix_dft_violation database
 #=======================================================#
-write_db ${output_dir}/odb/demo_chip.oasysdft_pre_fix.odb
+write_db ${output_dir}/odb/OpenRISC1k_chip.oasysdft_pre_fix.odb
 
 fix_dft_violations -type all -test_clock sysclk_byp -test_control scan_mode
 check_dft
@@ -34,8 +34,8 @@ set_dont_scan -verbose [get_cell  enable_nova1_reg] true
 #Final optimize
 #=======================================================#
 optimize
-write_db ${output_dir}/odb/demo_chip.oasysdft_post_fix.odb
-write_verilog ${output_dir}/demo_chip.oasysdft_post_fix.v
+write_db ${output_dir}/odb/OpenRISC1k_chip.oasysdft_post_fix.odb
+write_verilog ${output_dir}/OpenRISC1k_chip.oasysdft_post_fix.v
 report_timing
 report_endpoints
 report_power

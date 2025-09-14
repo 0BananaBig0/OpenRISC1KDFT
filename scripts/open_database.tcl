@@ -18,14 +18,14 @@ if {![info exists top_module]} {
 }
 
 # Read existing Oasys-RTL database (design and libraries)
-if {[file exists ${ekit_dir}/output/odb/demo_chip.oasys_final.odb]} {
+if {[file exists ${ekit_dir}/output/odb/OpenRISC1k_chip.oasys_final.odb]} {
   puts "Using ODB from output directory"
-  read_db ${ekit_dir}/output/odb/demo_chip.oasys_final.odb
-} elseif {[file exists ${ekit_dir}/demo_chip_rtl/demo_chip.odb]} {
-  puts "Using pre-defined ODB from demo_chip_rtl directory"
-  read_db ${ekit_dir}/demo_chip_rtl/demo_chip.odb
+  read_db ${ekit_dir}/output/odb/OpenRISC1k_chip.oasys_final.odb
+} elseif {[file exists ${ekit_dir}/OpenRISC1k_chip_rtl/OpenRISC1k_chip.odb]} {
+  puts "Using pre-defined ODB from OpenRISC1k_chip_rtl directory"
+  read_db ${ekit_dir}/OpenRISC1k_chip_rtl/OpenRISC1k_chip.odb
 } else {
-  puts "unable to locate ODB file for demo_chip design"
+  puts "unable to locate ODB file for OpenRISC1k_chip design"
 }
 
 # Report DFT if scan chains exist

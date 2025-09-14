@@ -2,14 +2,14 @@
  config_shell -echo true
 
 ###################Top Module Specification###########
-set top_module "demo_chip"
+set top_module "or1k_marocchino_top"
 set max_route_layer "10"
 
 #Set design file path variables
 set script_dir [file dirname [info script]]
 set ekit_dir   [file dirname ${script_dir}]
-set demo_chip_rtl_dir "${ekit_dir}/demo_chip_rtl"
-set demo_chip_sdc_files "${ekit_dir}/constraints/demo_chip_func.sdc"
+set rtl_dir "${ekit_dir}/rtl"
+set sdc_files "${ekit_dir}/constraints/OpenRISC1k_func.sdc"
 set output_dir "${ekit_dir}/output"
 
 ##set a consistant reporting format for timing
@@ -22,7 +22,7 @@ set dft_flow "tessent"
 set tessent_build /EDA/Mentor/tessent/bin/tessent
 
 #Source the script that sets the path variables for all input files
-source ${script_dir}/demo_chip_design_files.tcl
+# source ${script_dir}/demo_chip_design_files.tcl
 
 echo "\n-----------------------------"
 echo "\nDone setting design variables"

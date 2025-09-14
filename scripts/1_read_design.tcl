@@ -49,7 +49,7 @@ config_tolerance -blackbox true -connection_mismatch true \
 #Read verilog design files
 #=======================================================#
 
-if {[file exists ${ekit_dir}/demo_chip_rtl/rtl/nova/trunk/src/Intra4x4_PredMode_decoding.v]} {
+if {[file exists ${open_risc_1k_design_files_script_path}/../rtl/or1k_marocchino/rtl/verilog/or1k_marocchino_top.v]} {
   read_verilog $rtl_list  -include $search_path
 }
 
